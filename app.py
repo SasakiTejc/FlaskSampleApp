@@ -1,14 +1,16 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,request
 app = Flask(__name__)
 
-@app.route('/')
-def hello_world():
-    return render_template('Index.html',title="Index with jinja",message="Jinjaテンプレート例")
+app = Flask(__name__)
 
-@app.route('/<id>/<password>')
-def index2(id,password):
-    msg = 'id: %s, password: %s' %(id,password)
-    return render_template('index.html',title="index whis jinja",message=msg)
+@app.route('/',methods=['GET'])
+def index():
+    return render_template('index.html',title="form sample",message="お名前は？")
+
+@app.route('/',methods=['POST'])
+def form():
+    field = request.form['field']
+    return render_template('index.html',title='Form sample',message="こんにちは,%sさん" % field)
 
 if __name__ == '__main__':
     app.debug = True
