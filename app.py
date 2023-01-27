@@ -5,12 +5,10 @@ app = Flask(__name__)
 
 @app.route('/',methods=['GET'])
 def index():
-    return render_template('index.html',title="form sample",message="お名前は？")
+    flg = False
+    return render_template('index.html',title="form sample",message="this is jinja template sample",flg=flg)
 
-@app.route('/',methods=['POST'])
-def form():
-    field = request.form['field']
-    return render_template('index.html',title='Form sample',message="こんにちは,%sさん" % field)
+
 
 if __name__ == '__main__':
     app.debug = True
