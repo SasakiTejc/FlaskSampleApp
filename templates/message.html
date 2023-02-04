@@ -1,4 +1,4 @@
-{% extend "layout.html " %}
+{% extends "layout.html" %}
 
 {% block title %}
 Login
@@ -9,7 +9,7 @@ Login
 {% endblock %}
 
 {% block content %}
-<div class="layout"><a href="/layout">Logout</a></div>
+<div class="logout"><a href="/logout">Logout</a></div>
 <p>{{message}}</p>
 <form method="post" action="/">
     <table>
